@@ -12,7 +12,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import apiMovies from '../../../api/moviesApi';
 
-const ReprendreMenu = () => {
+const ReprendreMenu = (props) => {
     const navigation = useNavigation();
 
     const [data, setData] = useState([]);
@@ -59,7 +59,7 @@ const ReprendreMenu = () => {
 
   return (
     <>
-          <Text style={styles.title}>Reprendre avec André</Text>
+          <Text style={styles.title}>Reprendre avec {props.userName}</Text>
           <ScrollView style={{flex: 1}} horizontal={true} showsHorizontalScrollIndicator={false}>
             {data?.map((m, i) => 
                 <TouchableOpacity style={styles.col} key={i} onPress={() => navigation.navigate('Details', {
